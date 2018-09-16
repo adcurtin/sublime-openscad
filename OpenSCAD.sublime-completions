@@ -1,0 +1,91 @@
+{
+	"scope": "source.scad",
+
+	"completions":
+	[
+		{ "trigger": "$fa min angle", "contents": "$fa = $1" },
+		{ "trigger": "$fs min size", "contents": "$fs = $1" },
+		{ "trigger": "$fn num fragments", "contents": "$fn = $1" },
+
+		{ "trigger": "* disable", "contents": "* " },
+		{ "trigger": "# highlight", "contents": "# " },
+		{ "trigger": "! show only", "contents": "! " },
+		{ "trigger": "% transparent", "contents": "% " },
+
+		{ "trigger": "center=true", "contents": "center = true" },	
+		{ "trigger": "center=false", "contents": "center = false" },	
+
+		{ "trigger": "var = NAME;", "contents": "var = $1;" },
+		{ "trigger": "module NAME(...) {...}", "contents": "module $1($2) {$3}" },
+		{ "trigger": "function NAME(...) {...}", "contents": "function $1($2) {$3}" },
+		{ "trigger": "include <NAME.scad>", "contents": "include <$1.scad>" },
+		{ "trigger": "use <NAME.scad>", "contents": "<$1.scad>" },
+		{ "trigger": "import(\"filename.stl\")", "contents": "import(\"$1.stl\")" },
+
+		{ "trigger": "circle(radius)", "contents": "circle($1)" },
+		{ "trigger": "square(size)", "contents": "square($1)" },
+		{ "trigger": "square([width, height])", "contents": "square([$1, $2])" },
+		{ "trigger": "polygon([points])", "contents": "polygon([$1])" },
+		{ "trigger": "polygon([points], [paths])", "contents": "polygon([$1], [$2])" },
+
+		{ "trigger": "sphere(radius)", "contents": "sphere($1)" },
+		{ "trigger": "cube(size)", "contents": "cube($1)" },
+		{ "trigger": "cube([width, height, depth])", "contents": "cube([$1, $2, $3])" },
+		{ "trigger": "cylinder(h, r)", "contents": "cylinder($1, $2)" },
+		{ "trigger": "polyhedron(points, triangles, convexity)", "contents": "polyhedron($1, $2, $3)" },
+
+		{ "trigger": "union() {...}", "contents": "union() {$1}" },
+		{ "trigger": "difference() {...}", "contents": "difference() {$1}" },
+		{ "trigger": "intersection() {...}", "contents": "intersection() {$1}" },
+
+		{ "trigger": "hull() {...}", "contents": "hull() {$1}" },
+		{ "trigger": "minkowski() {...}", "contents": "minkowski() {$1}" },
+		
+		{ "trigger": "translate([x,y,z]) ", "contents": "translate([$1, $2, $3]) " },
+		{ "trigger": "rotate([x,y,z])", "contents": "rotate([$1, $2, $3])" },
+		{ "trigger": "scale([x,y,z])", "contents": "scale([$1, $2, $3])" },
+		{ "trigger": "resize([x,y,z],auto)", "contents": "resize([$1, $2, $3])" },
+		{ "trigger": "mirror([x,y,z])", "contents": "mirror([$1, $2, $3])" },
+		{ "trigger": "multmatrix(m)", "contents": "multmatrix($1)" },
+		{ "trigger": "color(\"colorname\")", "contents": "color(\"$1\")" },
+		{ "trigger": "color([r, g, b, a])", "contents": "color([$1, $2, $3, $4])" },
+
+		{ "trigger": "abs()", "contents": "abs()" },
+		{ "trigger": "sign()", "contents": "sign()" },
+		{ "trigger": "acos()", "contents": "acos()" },
+		{ "trigger": "asin()", "contents": "asin()" },
+		{ "trigger": "atan()", "contents": "atan()" },
+		{ "trigger": "atan2()", "contents": "atan2()" },
+		{ "trigger": "sin()", "contents": "sin()" },
+		{ "trigger": "cos()", "contents": "cos()" },
+		{ "trigger": "floor()", "contents": "floor()" },
+		{ "trigger": "round()", "contents": "round()" },
+		{ "trigger": "ceil()", "contents": "ceil()" },
+		{ "trigger": "ln()", "contents": "ln()" },
+		{ "trigger": "len()", "contents": "len()" },
+		{ "trigger": "log()", "contents": "log()" },
+		{ "trigger": "lookup()", "contents": "lookup()" },
+		{ "trigger": "min()", "contents": "min()" },
+		{ "trigger": "max()", "contents": "max()" },
+		{ "trigger": "pow()", "contents": "pow()" },
+		{ "trigger": "sqrt()", "contents": "sqrt()" },
+		{ "trigger": "exp()", "contents": "exp()" },
+		{ "trigger": "rands()", "contents": "rands()" },
+
+		{ "trigger": "echo(...)", "contents": "echo($1)" },
+		{ "trigger": "str(...)", "contents": "str($1)" },
+		{ "trigger": "for (i = [start:end]) {...}", "contents": "for (i = [$1:$2]) {$3}" },
+		{ "trigger": "for (i = [...]) {...}", "contents": "for (i = [$1]) {$2}" },
+		{ "trigger": "intersection_for(i = [start:end]) {...}", "contents": "intersection_for(i = [$1:$2]) {$3}" },
+		{ "trigger": "intersection_for(i = [start:step:end]) {...}", "contents": "intersection_for(i = [$1:$2:$3]) {$4}" },
+		{ "trigger": "intersection_for(i = [...]) {...}", "contents": "intersection_for(i = [$1]) {$2}" },
+		{ "trigger": "if(...) {...}", "contents": "if($1) {$2}" },
+		{ "trigger": "assign(...) {...}", "contents": "assign ($1) {$2}" },
+		{ "trigger": "search(...)", "contents": "search($1)" },
+		{ "trigger": "linear_extrude(height,center,convexity,twist,slices)", "contents": "linear_extrude($1, $2, $3, $4, $5)" },
+		{ "trigger": "rotate_extrude(convexity)", "contents": "rotate_extrude($1)" },
+		{ "trigger": "surface(file = \"filename.dat\",center,convexity)", "contents": "surface(file = \"$1.dat\", $2, $3)" },
+		{ "trigger": "projection(cut)", "contents": "projection($1)" },
+		{ "trigger": "render(convexity)", "contents": "render($1)" }
+	]
+}
