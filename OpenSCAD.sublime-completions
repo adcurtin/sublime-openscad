@@ -42,13 +42,13 @@
 		{ "trigger": "minkowski() {...}", "contents": "minkowski() {$1}" },
 		
 		{ "trigger": "translate([x,y,z]) ", "contents": "translate([$1, $2, $3]) " },
-		{ "trigger": "rotate([x,y,z])", "contents": "rotate([$1, $2, $3])" },
+		{ "trigger": "rotate([x,y,z])", "contents": "rotate([$1, $2, $3]) " },
 		{ "trigger": "scale([x,y,z])", "contents": "scale([$1, $2, $3])" },
 		{ "trigger": "resize([x,y,z],auto)", "contents": "resize([$1, $2, $3])" },
 		{ "trigger": "mirror([x,y,z])", "contents": "mirror([$1, $2, $3])" },
 		{ "trigger": "multmatrix(m)", "contents": "multmatrix($1)" },
-		{ "trigger": "color(\"colorname\")", "contents": "color(\"$1\")" },
-		{ "trigger": "color([r, g, b, a])", "contents": "color([$1, $2, $3, $4])" },
+		{ "trigger": "color(\"colorname\")", "contents": "color(\"$1\") " },
+		{ "trigger": "color([r, g, b, a])", "contents": "color([$1, $2, $3, $4]) " },
 
 		{ "trigger": "abs()", "contents": "abs()" },
 		{ "trigger": "sign()", "contents": "sign()" },
