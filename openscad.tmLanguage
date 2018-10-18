@@ -8,6 +8,14 @@
 	</array>
 	<key>name</key>
 	<string>OpenSCAD</string>
+	<key>foldingStartMarker</key>
+	<string>(?x)
+		 /\*\*(?!\*)
+		|^(?![^{]*?//|[^{]*?/\*(?!.*?\*/.*?\{)).*?\{\s*($|//|/\*(?!.*?\*/.*\S))
+	</string>
+	<key>foldingStopMarker</key>
+	<string>(?&lt;!\*)\*\*/|^\s*\}</string>
+
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -16,6 +24,85 @@
 			<key>name</key>
 			<string>comment.line.scad</string>
 		</dict>
+
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.toc-list.banner.block.scad</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^/\* =(\s*.*?)\s*= \*/$\n?</string>
+			<key>name</key>
+			<string>comment.block.scad</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>/\*</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.scad</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\*/</string>
+			<key>name</key>
+			<string>comment.block.scad</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\*/.*\n</string>
+			<key>name</key>
+			<string>invalid.illegal.stray-comment-end.scad</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.toc-list.banner.line.scad</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^// =(\s*.*?)\s*=\s*$\n?</string>
+			<key>name</key>
+			<string>comment.line.banner.scad</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>//</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.scad</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>$\n?</string>
+			<key>name</key>
+			<string>comment.line.double-slash.scad</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?&gt;\\\s*\n)</string>
+					<key>name</key>
+					<string>punctuation.separator.continuation.scad</string>
+				</dict>
+			</array>
+		</dict>
+
+
+
 		<dict>
 			<key>begin</key>
 			<string>(union|difference|intersection|render)\s*\(</string>

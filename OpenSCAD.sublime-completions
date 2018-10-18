@@ -3,6 +3,8 @@
 
 	"completions":
 	[
+		{ "trigger": "OpenSCAD-common.scad common parts library", "contents": "OpenSCAD-common" },
+
 		{ "trigger": "$fa min angle", "contents": "$fa = $1" },
 		{ "trigger": "$fs min size", "contents": "$fs = $1" },
 		{ "trigger": "$fn num fragments", "contents": "$fn = $1" },
@@ -12,8 +14,8 @@
 		{ "trigger": "! show only", "contents": "! " },
 		{ "trigger": "% transparent", "contents": "% " },
 
-		{ "trigger": "center=true", "contents": "center = true" },	
-		{ "trigger": "center=false", "contents": "center = false" },	
+		{ "trigger": "center=true", "contents": "center = true" },
+		{ "trigger": "center=false", "contents": "center = false" },
 
 		{ "trigger": "var = NAME;", "contents": "var = $1;" },
 		{ "trigger": "module NAME(...) {...}", "contents": "module $1($2) {$3}" },
@@ -40,7 +42,7 @@
 
 		{ "trigger": "hull() {...}", "contents": "hull() {$1}" },
 		{ "trigger": "minkowski() {...}", "contents": "minkowski() {$1}" },
-		
+
 		{ "trigger": "translate([x,y,z]) ", "contents": "translate([$1, $2, $3]) " },
 		{ "trigger": "rotate([x,y,z])", "contents": "rotate([$1, $2, $3]) " },
 		{ "trigger": "scale([x,y,z])", "contents": "scale([$1, $2, $3])" },
