@@ -22,13 +22,16 @@
 		{ "trigger": "function NAME(...) {...}", "contents": "function $1($2) {$3}" },
 		{ "trigger": "include <NAME.scad>", "contents": "include <$1.scad>" },
 		{ "trigger": "use <NAME.scad>", "contents": "<$1.scad>" },
-		{ "trigger": "import(\"filename.stl\")", "contents": "import(\"$1.stl\")" },
+		{ "trigger": "import(\"filename.stl\");", "contents": "import(\"$1.stl\");" },
 
 		{ "trigger": "circle(radius)", "contents": "circle($1)" },
 		{ "trigger": "square(size)", "contents": "square($1)" },
 		{ "trigger": "square([width, height])", "contents": "square([$1, $2])" },
 		{ "trigger": "polygon([points])", "contents": "polygon([$1])" },
 		{ "trigger": "polygon([points], [paths])", "contents": "polygon([$1], [$2])" },
+
+
+		{ "trigger": "text(\"text\")", "contents": "text(\"$1\")" },
 
 		{ "trigger": "sphere(radius)", "contents": "sphere($1)" },
 		{ "trigger": "cube(size)", "contents": "cube($1)" },
@@ -77,6 +80,7 @@
 		{ "trigger": "echo(...)", "contents": "echo($1)" },
 		{ "trigger": "str(...)", "contents": "str($1)" },
 		{ "trigger": "for (i = [start:end]) {...}", "contents": "for (i = [$1:$2]) {$3}" },
+		{ "trigger": "for (i = [start:increment:end]) {...}", "contents": "for (i = [$1:$2:$3]) {$4}" },
 		{ "trigger": "for (i = [...]) {...}", "contents": "for (i = [$1]) {$2}" },
 		{ "trigger": "intersection_for(i = [start:end]) {...}", "contents": "intersection_for(i = [$1:$2]) {$3}" },
 		{ "trigger": "intersection_for(i = [start:step:end]) {...}", "contents": "intersection_for(i = [$1:$2:$3]) {$4}" },
@@ -84,7 +88,8 @@
 		{ "trigger": "if(...) {...}", "contents": "if($1) {$2}" },
 		{ "trigger": "assign(...) {...}", "contents": "assign ($1) {$2}" },
 		{ "trigger": "search(...)", "contents": "search($1)" },
-		{ "trigger": "linear_extrude(height,center,convexity,twist,slices)", "contents": "linear_extrude($1, $2, $3, $4, $5)" },
+		{ "trigger": "linear_extrude(height)", "contents": "linear_extrude($1) " },
+		{ "trigger": "linear_extrude(height,center,convexity,twist,slices)", "contents": "linear_extrude($1, $2, $3, $4, $5) " },
 		{ "trigger": "rotate_extrude(convexity)", "contents": "rotate_extrude($1)" },
 		{ "trigger": "surface(file = \"filename.dat\",center,convexity)", "contents": "surface(file = \"$1.dat\", $2, $3)" },
 		{ "trigger": "projection(cut)", "contents": "projection($1)" },
