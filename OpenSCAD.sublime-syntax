@@ -1,0 +1,165 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: OpenSCAD
+file_extensions:
+  - scad
+scope: source.scad
+contexts:
+  main:
+    - match: //.*$
+      scope: comment.line.scad
+    - match: ^/\* =(\s*.*?)\s*= \*/$\n?
+      scope: comment.block.scad
+      captures:
+        1: meta.toc-list.banner.block.scad
+    - match: /\*
+      captures:
+        0: punctuation.definition.comment.scad
+      push:
+        - meta_scope: comment.block.scad
+        - match: \*/
+          captures:
+            0: punctuation.definition.comment.scad
+          pop: true
+    - match: \*/.*\n
+      scope: invalid.illegal.stray-comment-end.scad
+    - match: ^// =(\s*.*?)\s*=\s*$\n?
+      scope: comment.line.banner.scad
+      captures:
+        1: meta.toc-list.banner.line.scad
+    - match: //
+      captures:
+        0: punctuation.definition.comment.scad
+      push:
+        - meta_scope: comment.line.double-slash.scad
+        - match: $\n?
+          pop: true
+        - match: (?>\\\s*\n)
+          scope: punctuation.separator.continuation.scad
+    - match: (union|difference|intersection|render)\s*\(
+      comment: CSG modeling operations
+      push:
+        - meta_scope: entity.name.function.boolean.scad
+        - match: \(
+          push: nested_parens
+        - match: \)
+          pop: true
+        - include: main
+        - match: .
+          scope: storage.type.scad
+    - match: (cube|sphere|cylinder|polyhedron)\s*\(
+      comment: Primitive solids
+      push:
+        - meta_scope: entity.name.function.solids.scad
+        - match: \(
+          push: nested_parens
+        - match: \)
+          pop: true
+        - include: main
+        - match: .
+          scope: storage.type.scad
+    - match: (square|circle|polygon|import_dxf)\s*\(
+      comment: Primitive 2D shapes
+      push:
+        - meta_scope: entity.name.function.shapes.scad
+        - match: \(
+          push: nested_parens
+        - match: \)
+          pop: true
+        - include: main
+        - match: .
+          scope: storage.type.scad
+    - match: (linear_extrude|rotate_extrude)\s*\(
+      comment: "3D from 2D shapes"
+      push:
+        - meta_scope: entity.name.function.extrude.scad
+        - match: \(
+          push: nested_parens
+        - match: \)
+          pop: true
+        - include: main
+        - match: .
+          scope: storage.type.scad
+    - match: (translate|rotate|mirror|multmatrix)\s*\(
+      comment: Physical operations that preserve shape
+      push:
+        - meta_scope: entity.name.function.movement.scad
+        - match: \(
+          push: nested_parens
+        - match: \)
+          pop: true
+        - include: main
+        - match: .
+          scope: storage.type.scad
+    - match: (scale|resize)\s*\(
+      comment: Physical operations that modify shape
+      push:
+        - meta_scope: entity.name.function.size.scad
+        - match: \(
+          push: nested_parens
+        - match: \)
+          pop: true
+        - include: main
+        - match: .
+          scope: storage.type.scad
+    - match: (color)\s*\(
+      comment: Aspect change like color and textures
+      push:
+        - meta_scope: entity.name.function.aspect.scad
+        - match: \(
+          push: nested_parens
+        - match: \)
+          pop: true
+        - include: main
+        - match: .
+          scope: storage.type.scad
+    - match: (minkowski|hull)\s*\(
+      comment: The elegant and hard to use shaping functions
+      push:
+        - meta_scope: entity.name.function.advanced.scad
+        - match: \)
+          pop: true
+        - include: main
+        - match: .
+          scope: storage.type.scad
+    - match: (cos|sin|tan|acos|asin|atan|atan2|abs|ceil|floor|ln|len|log|lookup|max|min|norm|pow|rands|round|sign|sqrt|exp)\(
+      comment: Math functions
+      push:
+        - meta_scope: entity.name.function.math.scad
+        - match: \(
+          push: nested_parens
+        - match: \)
+          pop: true
+        - include: main
+        - match: .
+          scope: storage.type.scad
+    - match: (echo|str|for|intersection_for|if|assign|render|surface|projection|search)\s*\(
+      comment: Control like loops
+      push:
+        - meta_scope: keyword.control.scad
+        - match: \(
+          push: nested_parens
+        - match: \)
+          pop: true
+        - include: main
+        - match: .
+          scope: storage.type.scad
+    - match: '(module|function|\$f[ans]|\$t|\$vp[rt]|include|use|import)'
+      comment: Modules
+      scope: keyword.other.scad
+    - match: (#|%|!)
+      comment: Debug characters
+      scope: keyword.operator.debug.scad
+    - match: \d+\.?\d*
+      comment: All other numbers
+      scope: constant.numeric.scad
+  nested_parens:
+    - meta_scope: storage.type.scad
+    - match: \b\d+\.?\d*
+      comment: All other numbers
+      scope: constant.numeric.scad
+    - match: \\.
+      scope: storage.type.scad
+    - match: \)
+      pop: true
